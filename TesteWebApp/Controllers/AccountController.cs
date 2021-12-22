@@ -16,15 +16,15 @@ namespace TesteWebApp.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly ILogger<AccountController> _logger;
-        private readonly IConfiguration _config;
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly ILogger<AccountController> logger;
+        private readonly IConfiguration config;
+        private readonly IHttpContextAccessor httpContextAccessor;
 
         public AccountController(ILogger<AccountController> logger, IConfiguration config, IHttpContextAccessor httpContextAccessor)
         {
-            _logger = logger;
-            _config = config;
-            _httpContextAccessor = httpContextAccessor;
+            this.logger = logger;
+            this.config = config;
+            this.httpContextAccessor = httpContextAccessor;
         }
         [HttpGet]
         public IActionResult Login([FromQuery] string returnUrl)
@@ -41,11 +41,13 @@ namespace TesteWebApp.Controllers
             {
                 decodeUrl = WebUtility.UrlDecode(returnUrl);
             }
-            var client = new RestClient(_config.GetSection("ApiSettings")["ApiTeste"]);
-            client.Timeout = -1;
+            RestClient client = new(config.GetSection("ApiSettings")["ApiTeste"])
+            {
+                Timeout = -1
+            };
             var request = new RestRequest(Method.POST);
             var user = new UserModel { UserName = username, Password = password };
-            request.AddHeader("Content-Type", "applicattion/json");
+            request.AddHeader("Content-Type", "application/json");
             request.AddJsonBody(user);
             IRestResponse response = client.Execute(request);
             if (response.StatusCode == HttpStatusCode.Created)
@@ -58,7 +60,7 @@ namespace TesteWebApp.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Search", "Home");
+                    return RedirectToAction();
                 }
             }
             else

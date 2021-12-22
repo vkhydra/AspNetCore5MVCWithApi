@@ -17,15 +17,15 @@
         body: raw,
         redirect: 'follow'
     };
-    fetch("https://localhost:5001/api/account", requestOptions)
+    fetch("https://localhost:44389/api/account", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
 
-    fetch("https://localhost:5001/api/account", requestOptions)
+    fetch("https://localhost:44389/api/account", requestOptions)
         .then(function (response) {
             if (response.ok) {
-                window.location.href = "/";
+                
             }
             else {
                 alert("Usuario e, ou senha incorretos.");

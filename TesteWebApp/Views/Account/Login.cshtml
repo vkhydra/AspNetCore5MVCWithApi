@@ -16,7 +16,7 @@
                 <div class="col-md-6 contents">
                     <div class="row justify-content-center">
                         <div class="col-md-12">
-                            <form control="" class="form-block form-group" action="~/account/login/?ReturnUrl=@ViewBag.ReturnUrl" method="post">
+                            <form control="" class="form-block form-group" action="~/Account/Login/?ReturnUrl=@ViewBag.ReturnUrl" method="post">
                                 <div class="mb-4">
                                     <h3 class="titulo">Sign In</h3>
                                 </div>
@@ -35,10 +35,10 @@
                                         <div class="control__indicator"></div>
                                     </div>
                                     <span class="ml-auto">
-                                        <a href="./esquecisenha" class="forgot-pass ">Forgot Password?</a>
+                                        <a href="~/Account/esquecisenha" class="forgot-pass ">Forgot Password?</a>
                                     </span>
                                 </div>
-                                <button type="submit" class="btn btn-pill text-white btn-block btn-primary">OK</button>
+                                <button type="submit" onclick="logar()" class="btn btn-pill text-white btn-block btn-primary">OK</button>
                             </form>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    @*<script src="~/js/testeLogin.js"></script>*@
+    <script src="~/js/testeLogin.js"></script>
     <script>
         var erro = '@ViewBag.Erro';
         document.onload = function(){
