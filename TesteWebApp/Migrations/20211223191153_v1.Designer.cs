@@ -10,7 +10,7 @@ using TesteWebApp.Models;
 namespace TesteWebApp.Migrations
 {
     [DbContext(typeof(IdentityAppContext))]
-    [Migration("20211221195104_v1")]
+    [Migration("20211223191153_v1")]
     partial class v1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

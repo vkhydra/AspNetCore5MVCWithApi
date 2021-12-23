@@ -19,7 +19,7 @@ namespace TesteWebApp.Controllers
         {
             this.logger = logger;
         }
-        [Authorize]
+        [Authorize(Roles = "TestWebApp.Usuario")]
         public IActionResult Index()
         {
             return View();

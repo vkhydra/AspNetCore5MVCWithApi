@@ -41,7 +41,7 @@ namespace TesteWebApp.Controllers
             {
                 decodeUrl = WebUtility.UrlDecode(returnUrl);
             }
-            RestClient client = new RestClient(config.GetSection("ApiSettings")["ApiTeste"]);
+            RestClient client = new(config.GetSection("ApiSettings")["ApiTeste"]);
             client.Timeout = -1;
             var request = new RestRequest(Method.POST);
             var user = new UserModel { UserName = username, Password = password };
