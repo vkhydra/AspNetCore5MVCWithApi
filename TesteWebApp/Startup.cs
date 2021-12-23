@@ -38,6 +38,7 @@ namespace TesteWebApp
                     options.User.RequireUniqueEmail = false;
                 }).AddEntityFrameworkStores<IdentityAppContext>()
                   .AddDefaultTokenProviders();
+            services.AddControllers();
 
             services.AddHttpClient();
             services.AddControllersWithViews();
@@ -74,6 +75,7 @@ namespace TesteWebApp
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllers();
             });
         }
     }

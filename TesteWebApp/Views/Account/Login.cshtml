@@ -21,12 +21,10 @@
                                     <h3 class="titulo">Sign In</h3>
                                 </div>
                                 <div class="form-group first">
-                                    <label for="usuario">Usuario</label>
-                                    <input type="text" class="form-control" id="usuario">
+                                    <input type="text" name="username" id="username" class="form-control" placeholder="Usuário" value="">
                                 </div>
                                 <div class="form-group last mb-4 ">
-                                    <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password">
+                                    <input type="password" name="password" id="password" class="form-control"  placeholder="Senha" value="">
                                 </div>
                                 <div class="d-flex mb-5 align-items-center ">
                                     <div class="control control--checkbox mb-0">
@@ -38,7 +36,7 @@
                                         <a href="~/Account/esquecisenha" class="forgot-pass ">Forgot Password?</a>
                                     </span>
                                 </div>
-                                <button type="submit" onclick="logar()" class="btn btn-pill text-white btn-block btn-primary">OK</button>
+                                <button type="submit" name="submit" id="submit" class="btn btn-pill text-white btn-block btn-primary">OK</button>
                             </form>
                         </div>
                     </div>
@@ -48,7 +46,6 @@
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/testeLogin.js"></script>
     <script>
         var erro = '@ViewBag.Erro';
         document.onload = function(){

@@ -36,15 +36,13 @@ namespace TesteWebApp.Controllers
         [HttpPost]
         public IActionResult Login(string username, string password, string returnUrl)
         {
-            string decodeUrl = string.Empty;
-            if (string.IsNullOrEmpty(returnUrl))
+            string decodeUrl = "";
+            if (!string.IsNullOrEmpty(returnUrl))
             {
                 decodeUrl = WebUtility.UrlDecode(returnUrl);
             }
-            RestClient client = new(config.GetSection("ApiSettings")["ApiTeste"])
-            {
-                Timeout = -1
-            };
+            RestClient client = new RestClient(config.GetSection("ApiSettings")["ApiTeste"]);
+            client.Timeout = -1;
             var request = new RestRequest(Method.POST);
             var user = new UserModel { UserName = username, Password = password };
             request.AddHeader("Content-Type", "application/json");
@@ -60,7 +58,8 @@ namespace TesteWebApp.Controllers
                 }
                 else
                 {
-                    return RedirectToAction();
+                    return RedirectToAction("Index", "Home");
+                
                 }
             }
             else
