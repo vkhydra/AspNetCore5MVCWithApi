@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -27,6 +28,7 @@ namespace TesteWebApp.Controllers
             this.httpContextAccessor = httpContextAccessor;
         }
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Login([FromQuery] string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;

@@ -19,16 +19,13 @@ namespace TesteWebApp.Controllers
         {
             this.logger = logger;
         }
-        [Authorize(Roles = "TestWebApp.Usuario")]
+        [Authorize(Roles ="TestWebApp.Usuario")]
         public IActionResult Index()
         {
             return View();
         }
-        [Authorize]
         public IActionResult Adm() { return View(); }
-        [Authorize]
         public IActionResult AdmUsuario() { return View(); }
-        [Authorize]
         public IActionResult Usuario() { return View(); }
     }
 }
